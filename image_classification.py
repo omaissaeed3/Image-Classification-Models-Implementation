@@ -48,3 +48,16 @@ y_pred_svm = svm.predict(X_test)
 svm_accuracy = accuracy_score(y_test, y_pred_svm)
 
 print(f"SVM Accuracy: {svm_accuracy:.4f}")
+
+
+from sklearn.linear_model import LogisticRegression
+
+# Train Softmax classifier
+softmax = LogisticRegression(multi_class='multinomial', solver='lbfgs', max_iter=1000)
+softmax.fit(X_train, y_train)
+
+# Predict and evaluate
+y_pred_softmax = softmax.predict(X_test)
+softmax_accuracy = accuracy_score(y_test, y_pred_softmax)
+
+print(f"Softmax Accuracy: {softmax_accuracy:.4f}")
